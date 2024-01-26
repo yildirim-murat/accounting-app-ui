@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        toolsDocker  'Docker'
+         dockerTool 'Docker'
     }
 
     stages {
