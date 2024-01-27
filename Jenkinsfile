@@ -15,7 +15,7 @@ pipeline {
         stage('Docker Prune Operations') {
             steps {
                 script {
-                    sh 'docker container stop reactapp --force || true'
+                    sh 'docker container stop reactapp || true'
                     sh 'docker container prune --force'
                 }
             }
