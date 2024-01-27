@@ -12,6 +12,15 @@ pipeline {
             }
         }
 
+        stage('Docker Prune Operations') {
+            steps {
+                script {
+                    sh 'docker container prune --force'
+                    sh 'docker image prune --force'
+                }
+            }
+        }
+
         stage('Build Docker Image') {
             steps {
                 script {
@@ -32,10 +41,6 @@ pipeline {
         }
 
         always{
-            script{
-                sh 'docker stop reactapp'
-                sh 'docker rm -f reactapp'
-            }
           echo 'CI/CD Pipeline Operations have been discontinued.'
         }
     }
